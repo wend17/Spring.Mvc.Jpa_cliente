@@ -1,0 +1,37 @@
+.stylesw1{
+   margin: 20px;
+}
+.stylesw1 label.stylesw2{
+   font-size: 18px;
+}
+.listara{
+   margin: 10px;
+}
+.inputw{
+   height: 55px;
+   font-size: 18px;
+}
+.lheadw{
+   font-size: 18px;
+   line-height: 40px;
+   text-align: center;
+}
+.fmarco{
+   background: #eaeaee;
+   margin: auto;
+   width: 50%;
+}
+.fcabecero{
+   font-size: 19px;
+   text-align: center;
+}
+.lcabecero{
+   height: 60px;
+   font-size: 30px;
+   font-weight: 480;
+   background: #fdfde7;
+   text-align: center;
+}
+
+
+
