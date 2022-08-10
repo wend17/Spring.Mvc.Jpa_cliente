@@ -34,7 +34,7 @@ public class ClienteController {
 
     @GetMapping("/listar")
     public String listar (@RequestParam(name = "page",defaultValue = "0") int page, Model model){
-        Pageable pageRequest = PageRequest.of(page, 5);
+        Pageable pageRequest = PageRequest.of(page, 4);
         Page<Cliente> clientes=clienteService.findAll(pageRequest);
         PageRender<Cliente> pageRender=new PageRender<>("/listar",clientes);
         model.addAttribute("titulo","Listado de Clientes");
@@ -61,7 +61,7 @@ public class ClienteController {
            model.addAttribute("boton","crear cliente");
            return "form";
        }
-       String mensajeflash=(cliente.getId() != null)?"Cliente editado con exito":"Cliente creado con exito";
+       String mensajeflash=(cliente.getId() != null)?"Cliente editado con éxito":"Cliente creado con éxito";
         clienteService.save(cliente);
         status.setComplete();
 
@@ -81,7 +81,7 @@ public class ClienteController {
            }
 
         } else {
-            flash.addFlashAttribute("error","El ID del cliente no existe");
+            flash.addFlashAttribute("error","El ID del cliente no puede ser cero");
             return "redirect:/listar";
         }
         model.addAttribute("titulo","Editar cliente");

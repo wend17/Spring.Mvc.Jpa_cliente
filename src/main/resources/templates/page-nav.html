@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
-<nav th:fragment="paginator">
+<nav th:fragment="paginator"> <!--   para ponerlo en el listar-->
     <ul class="pagination">
         <li class="page-item" th:class="${page.first? 'page-item disabled' : 'page-item'}">
-            <span class="page-link" th:if="${page.first}">Primera</span>
+         <span class="page-link" th:if="${page.first}">Primera</span> <!--   sin link-->
             <a class="page-link" th:if="${not page.first}" th:href="@{${page.url}(page=0)}">Primera</a>
         </li>
         <li class="page-item" th:class="${not page.first? 'page-item disabled' : 'page-item'}">
@@ -16,7 +12,7 @@
             <a class="page-link" th:if="${ page.hasPrevious}" th:href="@{${page.url}(page.paginaActual-2)}">&laquo;</a>
         </li>
         <li class="page-item" th:each="item : ${page.paginas}" th:class="${item.actual? 'page-item active': 'page-item'}">
-            <samp class="page-link" th:if="${item.actual}" th:text="${item.numero}"></samp>
+            <span class="page-link" th:if="${item.actual}" th:text="${item.numero}"></span>
             <a class="page-link" th:if="${not item.actual}" th:href="@{${page.url}(page=${item.numero - 1})}"
                th:text="${item.numero}"></a>
         </li>
@@ -29,8 +25,6 @@
             <span class="page-link" th:if="${page.last}">&Uacute;ltimo</span>
             <a class="page-link" th:if="${not page.last}" th:href="@{${page.url}(page=${page.totaldePaginas -1})}">&Uacute;ltimo</a>
         </li>
-
-
     </ul>
 </nav>
 </body>
