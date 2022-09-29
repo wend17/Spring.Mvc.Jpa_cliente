@@ -3,6 +3,8 @@ package com.datajpa.app.service;
 import com.datajpa.app.models.dao.IClienteRepository;
 import com.datajpa.app.models.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +21,7 @@ public class ClienteServiceImpl implements IClienteService {
     @Transactional(readOnly = true)
     @Override
     public List<Cliente> findAll() {
-        return clienterepository.findAll();
+        return (List<Cliente>) clienterepository.findAll();
     }
 
     @Transactional
@@ -45,4 +47,12 @@ public class ClienteServiceImpl implements IClienteService {
     public void delete(Long id) {
         clienterepository.deleteById(id);
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Page<Cliente> findAll(Pageable pageable) {
+        return clienterepository.findAll(pageable);
+    }
+
+
 }

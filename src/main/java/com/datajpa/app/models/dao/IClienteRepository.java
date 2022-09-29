@@ -1,8 +1,9 @@
 package com.datajpa.app.models.dao;
 
 import com.datajpa.app.models.entity.Cliente;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface IClienteRepository extends JpaRepository <Cliente,Long> {
+
+public interface IClienteRepository extends PagingAndSortingRepository<Cliente,Long> {
 
 }
